@@ -16,6 +16,7 @@
   width:400px;
   margin:auto;
   text-align:center;
+  text-shadow:5px 5px 5px red;
   }
   div{
   font-size:25px;
@@ -99,12 +100,13 @@
  var bt2 = document.getElementById("next");//获取Id为next的对象
  var arr = [];//数组
  var i = 1;
+ var a;//防止点击按钮出错
  arr[1] = "独有宦游人，偏惊物候新。";
  arr[2] = "云霞出海曙，梅柳渡江春。";
  arr[3] = "淑气催黄鸟，晴光转绿苹。";
  arr[4] = "忽闻歌古调，归思欲沾巾。";
  bt1.onclick = function (){
-	 	if(i==1){ 
+	 	if(a==0){ 
 		headline.textContent = "杜审言：和晋陵路丞早春游望";
 		arr[0] = headline.textContent;
 		arr[1] = "独有宦游人，偏惊物候新。";
@@ -112,27 +114,29 @@
 		arr[3] = "淑气催黄鸟，晴光转绿苹。";
 		arr[4] = "忽闻歌古调，归思欲沾巾。";
 		content.textContent = arr[1] + arr[2] + arr[3] + arr[4];//将诗替换成数组里面的内容
-		
+		i=1;
 	}
-	 if(i==2){
-		headline.textContent = "沈全期：杂诗";
+	else if(a==1){
+	headline.textContent = "沈全期：杂诗";
 		arr[5] = headline.textContent;
 		arr[6] = "闻道黄龙戍，频年不解兵。";
 		arr[7] = "可怜闺里月，长在汉家营。";
 		arr[8] = "少妇今春意，良人昨夜情。";
 		arr[9] = "谁能将旗鼓，一为取龙城？";
 		content.textContent = arr[6] + arr[7] + arr[8] + arr[9];//将诗替换成数组里面的内容
-		i--;//控制翻页
+		//控制翻页
+		a--;
+		i--;
 	}
-	else if(i==3){
+	else if(a==2){
 		arr[10] = headline.textContent;
 		headline.textContent = "王湾：次北固山下";
 		arr[11] = "客路青山外，行舟绿水前。";
 		arr[12] = "潮平两岸阔，风正一帆悬。";
 		arr[13] = "海日生残夜，江春入旧年。";
 		arr[14] = "乡书何处达？归雁洛阳边。";
-		content.textContent = arr[11] + arr[12] + arr[13] + arr[14];//将诗替换成数组里面的内容
-		i--;
+		content.textContent = arr[11] + arr[12] + arr[13] + arr[14];//将诗替换成数组里面的内容	
+		a--;
 	 }
 	
 };
@@ -146,6 +150,7 @@
 		arr[9] = "谁能将旗鼓，一为取龙城？";
 		content.textContent = arr[6] + arr[7] + arr[8] + arr[9];//将诗替换成数组里面的内容
 		i++;//控制翻页
+		a=0;
 		}
 
 	else if(i==2){
@@ -157,6 +162,7 @@
 		arr[14] = "乡书何处达？归雁洛阳边。";
 		content.textContent = arr[11] + arr[12] + arr[13] + arr[14];//将诗替换成数组里面的内容
 		i++;
+		a=1;
 	 }
 	 else if(i==3){
 		arr[15] = headline.textContent;
@@ -164,7 +170,7 @@
 		arr[16] = "移舟泊烟渚，日暮客愁新。";
 		arr[17] = "野旷天低树，江清月近人。";
 		content.textContent = arr[16] + arr[17];//将诗替换成数组里面的内容
-		
+		a=2;
 	 }
 	
 };
