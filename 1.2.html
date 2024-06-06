@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width , initial-scale=1">
+  <!-- 
+   增加这句后，可以看到浏览器的DevTools面板的模拟移动设备状态的变化
+  -->
+  <!-- <link rel="stylesheet" href="myCSS.css" >  -->
+  <style>
+    * {
+      margin: 10px;
+      text-align: center;
+    }
+
+    header {
+      height: 15%;
+      border: 2px solid blue;
+      font-size: 1.6em;
+    }
+
+    main {
+      height: 70%;
+      border: 2px solid blue;
+      font-size: 1.2em;
+      background-image: url('../lesson/CS.jpg');
+      background-size: cover;
+    }
+
+    nav {
+      border: 2px solid blue;
+      height: 10%;
+      font-size: 1.1em;
+    }
+    
+
+    footer {
+      min-height: 5%;
+      border: 2px solid blue;
+    }
+  </style>
+  <title>移动互联时代的响应式设计（窄屏）</title>
+ </head> 
+ <body>
+  <header>
+     现代电影赏析
+  </header>
+  <nav>
+    <button>导航一</button>
+    <button>导航二</button>
+    <button>导航三</button>
+  </nav>
+   <main>
+    内容区域
+   </main>
+
+  <footer> 
+   万一苇 江西科技师范大学 2022--2025
+  </footer> 
+
+  <script>
+    var UI = {};
+    // 设置宽度
+    // UI.appWidth = window.innerWidth;
+    UI.appWidth = window.innerWidth >= 600 ? 600 : window.innerWidth;
+    // 设置高度
+    UI.appHeight = window.innerHeight;
+    // 基础字体的大小
+    let baseFont = parseInt(UI.appWidth / 20) + 'px';
+    // 通过修改body对象的字体大小，可以遗传给子代，从而实现自己的响应式设计
+    document.body.style.fontSize = baseFont;
+    // 把body的高度设置为屏幕的高度，实现了纵向全屏
+    // 通过CSS对body子对象的高度百分比进行分配，从而达到响应式设计的目标。
+    document.body.style.height = UI.appHeight - 70 + 'px';
+    function $(element) {
+      if (element !== String 
+      || element === '' 
+      || element === null 
+      || element === undefined) {
+        
+      }
+
+      return document.getElementById(element);
+    }
+  </script>
+ </body>
+</html>
